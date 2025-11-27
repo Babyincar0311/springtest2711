@@ -12,13 +12,13 @@
         <div class="mb-3">
             <label>Sinh viên</label>
             <select name="studentId" class="form-select" required>
-                <option th:each="s : ${students}" th:value="${s.id}" th:text="${s.fullName} + ' (' + ${s.studentCode} + ')'"></option>
+                <option th:each="s : ${students}" th:value="${s.studentId}" th:text="${s.fullName} + ' (' + ${s.studentCode} + ')'"></option>
             </select>
         </div>
         <div class="mb-3">
             <label>Môn học</label>
             <select name="subjectId" class="form-select" required>
-                <option th:each="sub : ${subjects}" th:value="${sub.id}" th:text="${sub.subjectName} + ' (' + ${sub.subjectCode} + ')'"></option>
+                <option th:each="sub : ${subjects}" th:value="${sub.subjectId}" th:text="${sub.subjectName} + ' (' + ${sub.subjectCode} + ')'"></option>
             </select>
         </div>
         <div class="mb-3">
