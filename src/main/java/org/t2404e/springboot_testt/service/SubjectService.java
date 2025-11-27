@@ -18,7 +18,7 @@ public class SubjectService {
     }
 
     // Lấy môn học theo ID
-    public Subject getSubjectById(Long id) {  // ✅ Long
+    public Subject getSubjectById(Long id) {
         return subjectRepository.findById(id).orElse(null);
     }
 }
