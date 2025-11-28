@@ -12,13 +12,13 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class DisplayController {
+
     private final ScoreService scoreService;
 
-    // Hiển thị bảng danh sách sinh viên kèm điểm và grade
     @GetMapping("/scores")
     public String showScores(Model model) {
         List<StudentScoreDTO> list = scoreService.getAllStudentScores();
         model.addAttribute("list", list);
-        return "student-scores"; // Thymeleaf template
+        return "student-scores";
     }
 }

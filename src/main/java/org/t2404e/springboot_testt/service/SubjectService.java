@@ -10,6 +10,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class SubjectService {
+
     private final SubjectRepository subjectRepository;
 
     // Lấy tất cả môn học
@@ -21,6 +22,9 @@ public class SubjectService {
     public Subject getSubjectById(Long id) {
         return subjectRepository.findById(id).orElse(null);
     }
+
+    // Lưu môn học mới
+    public void save(Subject subject) {
+        subjectRepository.save(subject);
+    }
 }
-
-

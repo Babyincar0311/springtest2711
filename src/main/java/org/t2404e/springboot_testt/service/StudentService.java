@@ -12,22 +12,15 @@ import java.util.List;
 public class StudentService {
     private final StudentRepository studentRepository;
 
-    // Lấy tất cả sinh viên
-    public List<Student> getAllStudents() {
+    public void save(Student student) {
+        studentRepository.save(student);
+    }
+
+    public List<Student> getAll() {
         return studentRepository.findAll();
     }
 
-    // Thêm sinh viên mới
-    public Student saveStudent(Student student) {
-        return studentRepository.save(student);
-    }
-    // Xóa sinh viên
-    public void deleteStudent(Long id) {
-        studentRepository.deleteById(id);
-    }
-
-    // Lấy sinh viên theo ID
-    public Student getStudentById(Long id) {
+    public Student get(Long id) {
         return studentRepository.findById(id).orElse(null);
     }
 

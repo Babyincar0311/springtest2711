@@ -2,6 +2,8 @@ package org.t2404e.springboot_testt.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.t2404e.springboot_testt.entity.Score;
+import java.util.List;
 
-public interface ScoreRepository extends JpaRepository<Score,Long> {
+public interface ScoreRepository extends JpaRepository<Score, Long> {
+
 }

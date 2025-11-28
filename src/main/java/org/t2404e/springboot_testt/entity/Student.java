@@ -7,24 +7,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Id;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "student_t")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_id")
-    private Long studentId;
+    private Long student_id;
 
-    @Column(name = "student_code", nullable = false)
-    private String studentCode;
+    @Column(nullable = false)
+    private String student_code;
 
-    @Column(name = "full_name", nullable = false)
-    private String fullName;
+    @Column(nullable = false)
+    private String full_name;
 
     private String address;
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    private List<Score> scores;
+
 }

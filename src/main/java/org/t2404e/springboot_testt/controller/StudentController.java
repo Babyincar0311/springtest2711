@@ -14,22 +14,24 @@ import org.t2404e.springboot_testt.service.StudentService;
 public class StudentController {
     private final StudentService studentService;
 
-    // Form thêm sinh viên
     @GetMapping("/add")
     public String addForm(Model model) {
         model.addAttribute("student", new Student());
-        return "add-student"; // Thymeleaf template
+        return "add-student";
     }
-    // Xử lý submit form
+
     @PostMapping("/add")
-    public String addStudent(@ModelAttribute Student student) {
-        studentService.saveStudent(student);
-        return "redirect:/scores"; // Quay về trang hiển thị danh sách
-    }
-    // Xóa sinh viên
-    @GetMapping("/delete/{id}")
-    public String deleteStudent(@PathVariable Long id) {
-        studentService.deleteStudent(id);
+    public String save(
+            @RequestParam String student_code,
+            @RequestParam String full_name,
+            @RequestParam String address
+    ) {
+        Student s = new Student();
+        s.setStudent_code(student_code);
+        s.setFull_name(full_name);
+        s.setAddress(address);
+        studentService.save(s);
         return "redirect:/scores";
     }
+
 }
